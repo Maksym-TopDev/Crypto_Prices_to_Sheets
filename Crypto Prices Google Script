@@ -1,0 +1,28 @@
+function fetchCoinPrice(coin) {
+  
+
+var apiUrl = 'https://api.coinmarketcap.com/v1/ticker/';
+var coinU = coin + '/';
+
+var response = UrlFetchApp.fetch(apiUrl+coinU, {'muteHttpExceptions': true});
+  
+var json = response.getContentText();
+var data = JSON.parse(json);
+return data[0].price_usd;
+  
+}
+
+
+function fetchCoinRank(coin) {
+
+
+var apiUrl = 'https://api.coinmarketcap.com/v1/ticker/';
+var coinU = coin + '/';
+
+var response = UrlFetchApp.fetch(apiUrl+coinU, {'muteHttpExceptions': true});
+  
+var json = response.getContentText();
+var data = JSON.parse(json);
+return data[0].rank;
+  
+}
